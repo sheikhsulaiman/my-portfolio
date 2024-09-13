@@ -25,8 +25,8 @@ const Hero = () => {
         <div className="col-span-12 md:col-span-7 md:space-y-2">
           <h2 className="text-2xl font-bold">About Me</h2>
           <p className="text-wrap">
-            I'm a <span className="underline">Freelance Developer</span> and a
-            student of
+            I&apos;m a <span className="underline">Freelance Developer</span>{" "}
+            and a student of
             <span> Educational Technology</span>. I create websites and apps
             that help organizations address business challenges and meet their
             needs.
@@ -59,14 +59,14 @@ const Hero = () => {
                 +880 19471 97174
               </Link>
             </li>
-            <li>
+            {/* <li>
               <Link
                 className="hover:underline hover:text-brand"
-                href="https://sonyed.tech"
+                href="https://www.sonyed.tech"
               >
-                https://sonyed.tech
+                https://www.sonyed.tech
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
