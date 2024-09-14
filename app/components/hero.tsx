@@ -2,6 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedin } from "react-icons/fa";
 import { LuMapPin } from "react-icons/lu";
+import { FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaGithub } from "react-icons/fa6";
+import { FaFacebook } from "react-icons/fa";
 const Hero = () => {
   return (
     <section className="min-h-screen mx-4 flex flex-col justify-center md:max-w-screen-md md:mx-auto">
@@ -29,45 +33,76 @@ const Hero = () => {
             and a student of
             <span> Educational Technology</span>. I create websites and apps
             that help organizations address business challenges and meet their
-            needs.
+            needs. I speak English, Bengali, and Japanese.
           </p>
         </div>
-        <div className="hidden md:block md:col-span-5 space-y-2">
-          <div className="flex items-baseline justify-between">
+        <div className="hidden md:flex md:col-span-5 space-y-2  flex-col">
+          <div className="flex-1">
             <h2 className="text-2xl font-bold">Contact</h2>
-            <Link
-              href="https://www.linkedin.com/in/sheikh-sulaiman/"
-              className="hover:text-[#0077B5]"
-            >
-              <FaLinkedin size={24} />
-            </Link>
+            <ul>
+              <li>
+                <Link
+                  className="hover:underline hover:text-brand"
+                  href="mailto:sheikhsulaimansony@outlook.com"
+                >
+                  sheikhsulaimansony@outlook.com
+                </Link>
+              </li>
+              <li className=" hover:text-brand">
+                <p>+880 19471 97174</p>
+              </li>
+            </ul>
           </div>
-          <ul>
-            <li>
-              <Link
-                className="hover:underline hover:text-brand"
-                href="mailto:sheikhsulaimansony@outlook.com"
-              >
-                sheikhsulaimansony@outlook.com
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="hover:text-brand"
-                href={"https://wa.me/+8801947197174"}
-              >
-                +880 19471 97174
-              </Link>
-            </li>
-            {/* <li>
-              <Link
-                className="hover:underline hover:text-brand"
-                href="https://www.sonyed.tech"
-              >
-                https://www.sonyed.tech
-              </Link>
-            </li> */}
-          </ul>
+          <div>
+            <ul className="flex items-center justify-start gap-6">
+              <li>
+                <Link
+                  href="https://github.com/sheikhsulaiman"
+                  className="hover:text-brand cursor-pointer"
+                  target="_blank"
+                >
+                  <FaGithub size={24} />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.linkedin.com/in/sheikh-sulaiman/"
+                  className="hover:text-brand cursor-pointer"
+                  target="_blank"
+                >
+                  <FaLinkedin size={24} />
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="https://twitter.com/sulaiman7473"
+                  className="hover:text-brand cursor-pointer"
+                  target="_blank"
+                >
+                  <FaXTwitter size={24} />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.instagram.com/sheikh.sulaiman.sony/"
+                  className="hover:text-brand cursor-pointer"
+                  target="_blank"
+                >
+                  <FaInstagram size={24} />
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="https://www.facebook.com/Sheikh.Sulaiman.Sony/"
+                  className="hover:text-brand cursor-pointer"
+                  target="_blank"
+                >
+                  <FaFacebook size={24} />
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
