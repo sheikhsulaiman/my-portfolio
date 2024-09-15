@@ -6,6 +6,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 import { FaFacebook } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 const Hero = () => {
   return (
     <section className="min-h-screen mx-4 flex flex-col justify-center md:max-w-screen-md md:mx-auto">
@@ -104,6 +105,12 @@ const Hero = () => {
             </ul>
           </div>
         </div>
+      </div>
+      <div className="grid place-items-center">
+        <p className="absolute bottom-8 text-xl text-center text-yellow-100 opacity-20">
+          scroll down to explore
+        </p>
+        <FaChevronDown className="absolute bottom-4 text-yellow-100 opacity-20 wheel" />
       </div>
     </section>
   );
