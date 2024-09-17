@@ -39,6 +39,7 @@ export async function POST(req: NextRequest) {
     } else {
       return NextResponse.json({
         message: "Thank you for your cooperation. I will contact you shortly.",
+        info: info,
       });
     }
   });
