@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useState } from "react";
+import { LuLoader2 } from "react-icons/lu";
 import {
   Form,
   FormControl,
@@ -15,8 +17,20 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
+import { projectProposalFormSchema } from "@/lib/schemas";
+import Link from "next/link";
 
 const projectTypes = [
   {
@@ -37,19 +51,11 @@ const projectTypes = [
   },
 ] as const;
 
-const formSchema = z.object({
-  fullname: z.string({ required_error: "Please specify" }).min(2).max(50),
-  email: z.string({ required_error: "Please specify" }).email(),
-  projectType: z
-    .array(z.string())
-    .refine((value) => value.some((item) => item), {
-      message: "You have to select at least one item.",
-    }),
-  timeplan: z.string({ required_error: "Please specify" }).min(1).max(100),
-  needToKnow: z.string({ required_error: "Please specify" }).min(10).max(500),
-});
+const formSchema = projectProposalFormSchema;
 
 const NewProjectForm = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -62,11 +68,26 @@ const NewProjectForm = () => {
     },
   });
 
+  const postData = async (data: z.infer<typeof formSchema>) => {
+    setIsLoading(true);
+    const response = await fetch("/api/project-proposal", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    setIsLoading(false);
+    if (response.ok) {
+      setIsDialogOpen(true);
+    }
+  };
+
   // 2. Define a submit handler.
   function onSubmit(values: z.infer<typeof formSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    console.log(values);
+    postData(values);
   }
 
   return (
@@ -195,10 +216,37 @@ const NewProjectForm = () => {
             </FormItem>
           )}
         />
-        <Button className="rounded-full p-8 text-xl w-1/2" type="submit">
+        <Button
+          disabled={isLoading}
+          className="rounded-full p-8 text-xl w-1/2"
+          type="submit"
+        >
+          {isLoading && <LuLoader2 className="h-4 w-4 animate-spin mr-2" />}
           Send inquiry
         </Button>
       </form>
+      <Dialog
+        open={isDialogOpen}
+        onOpenChange={() => setIsDialogOpen(!isDialogOpen)}
+      >
+        <DialogContent className="bg-primary">
+          <DialogHeader>
+            <DialogTitle>Now we are connected?</DialogTitle>
+            <DialogDescription>
+              Thank you for your cooperation. I will contact you shortly.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="sm:justify-start">
+            <DialogClose asChild>
+              <Link href="/">
+                <Button type="button" variant="secondary">
+                  Go to home.
+                </Button>
+              </Link>
+            </DialogClose>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </Form>
   );
 };

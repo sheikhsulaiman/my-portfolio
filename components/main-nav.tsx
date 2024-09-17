@@ -20,9 +20,11 @@ const MainNav = () => {
             </li>
           ))}
         </ul>
-        <Button variant={"outline"} className="rounded-full p-8 text-xl">
-          Start a project <GoArrowUpRight className="ml-2 inline" />
-        </Button>
+        <Link href="/start-a-project">
+          <Button variant={"outline"} className="rounded-full p-8 text-xl">
+            Start a project <GoArrowUpRight className="ml-2 inline" />
+          </Button>
+        </Link>
       </nav>
     </header>
   );
