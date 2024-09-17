@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import { LuLoader2 } from "react-icons/lu";
+import { useToast } from "@/hooks/use-toast";
+
 import {
   Form,
   FormControl,
@@ -17,20 +19,10 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
 
 import { Input } from "@/components/ui/input";
 import { cn } from "@/lib/utils";
 import { projectProposalFormSchema } from "@/lib/schemas";
-import Link from "next/link";
 
 const projectTypes = [
   {
@@ -54,7 +46,7 @@ const projectTypes = [
 const formSchema = projectProposalFormSchema;
 
 const NewProjectForm = () => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { toast } = useToast();
   const [isLoading, setIsLoading] = useState(false);
   // 1. Define your form.
   const form = useForm<z.infer<typeof formSchema>>({
@@ -78,9 +70,18 @@ const NewProjectForm = () => {
       },
     });
     setIsLoading(false);
-    console.log(data);
     if (response.ok) {
-      setIsDialogOpen(true);
+      toast({
+        title: "Now we are connected!",
+        description:
+          "Thank you for your co-operations. I will contact you soon.",
+      });
+    } else {
+      toast({
+        title: "Something went wrong!",
+        description: "Please try again later",
+        variant: "destructive",
+      });
     }
   };
 
@@ -226,28 +227,6 @@ const NewProjectForm = () => {
           Send inquiry
         </Button>
       </form>
-      <Dialog
-        open={isDialogOpen}
-        onOpenChange={() => setIsDialogOpen(!isDialogOpen)}
-      >
-        <DialogContent className="bg-primary">
-          <DialogHeader>
-            <DialogTitle>Now we are connected?</DialogTitle>
-            <DialogDescription>
-              Thank you for your cooperation. I will contact you shortly.
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter className="sm:justify-start">
-            <DialogClose asChild>
-              <Link href="/">
-                <Button type="button" variant="secondary">
-                  Go to home.
-                </Button>
-              </Link>
-            </DialogClose>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </Form>
   );
 };
