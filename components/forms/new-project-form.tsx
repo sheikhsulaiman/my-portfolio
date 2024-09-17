@@ -78,6 +78,7 @@ const NewProjectForm = () => {
       },
     });
     setIsLoading(false);
+    console.log(data);
     if (response.ok) {
       setIsDialogOpen(true);
     }

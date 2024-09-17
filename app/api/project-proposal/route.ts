@@ -33,18 +33,27 @@ export async function POST(req: NextRequest) {
     html: emailHtml,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return NextResponse.json({ error: error }, { status: 500 });
-    } else {
-      return NextResponse.json({
-        message: "Thank you for your cooperation. I will contact you shortly.",
-        info: info,
-      });
-    }
-  });
-  console.log(body);
-  return NextResponse.json({
-    message: "Thank you for your cooperation. I will contact you shortly.",
-  });
+  try {
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (!error) {
+        return NextResponse.json(
+          {
+            message:
+              "Thank you for your cooperation. I will contact you shortly.",
+            info: info,
+          },
+          { status: 200 }
+        );
+      } else {
+        return NextResponse.json({ error: error }, { status: 500 });
+      }
+    });
+
+    return NextResponse.json(
+      { message: "Proposal sent successfully" },
+      { status: 200 }
+    );
+  } catch (e) {
+    return NextResponse.json({ error: e }, { status: 500 });
+  }
 }
