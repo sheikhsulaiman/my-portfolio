@@ -5,15 +5,7 @@ import Link from "next/link";
 import { LuAlignJustify } from "react-icons/lu";
 
 import { GoArrowUpRight } from "react-icons/go";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import MobileNav from "./mobile-nav";
 
 const MainNav = () => {
