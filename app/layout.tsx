@@ -4,6 +4,7 @@ import "./globals.css";
 import MainNav from "../components/main-nav";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Sheet } from "@/components/ui/sheet";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -38,7 +39,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <MainNav />
+          <Sheet>
+            <MainNav />
+          </Sheet>
           {children}
           <Toaster />
         </ThemeProvider>
