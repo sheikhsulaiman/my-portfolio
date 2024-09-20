@@ -7,12 +7,12 @@ import { GoArrowUpRight } from "react-icons/go";
 const MainNav = () => {
   return (
     <header className="absolute top-0 left-0 right-0">
-      <nav className="container flex items-center justify-between mx-auto py-4">
+      <nav className="container flex items-center justify-between mx-auto p-4 border-b-2">
         <Logo />
         <ul className="flex items-center justify-center gap-6">
           {siteConfig.mainNav.map((navItem) => (
             <li key={navItem.title}>
-              <Link href={navItem.href} className="text-white">
+              <Link href={navItem.href}>
                 <Button variant={"ghost"} className="rounded-full p-8 text-xl">
                   {navItem.title}
                 </Button>
@@ -21,7 +21,7 @@ const MainNav = () => {
           ))}
         </ul>
         <Link href="/start-a-project">
-          <Button variant={"outline"} className="rounded-full p-8 text-xl">
+          <Button variant={"default"} className="rounded-full p-8 text-xl">
             Start a project <GoArrowUpRight className="ml-2 inline" />
           </Button>
         </Link>

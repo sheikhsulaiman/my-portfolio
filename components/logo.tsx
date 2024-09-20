@@ -4,7 +4,14 @@ import Link from "next/link";
 const Logo = () => {
   return (
     <Link href="/">
-      <Image src={"/favicon.ico"} height={45} width={45} alt="sonyed.tech" />
+      <div className="bg-primary-foreground rounded-md">
+        <Image
+          src={"/images/logo.png"}
+          height={75}
+          width={200}
+          alt="sonyed.tech"
+        />
+      </div>
     </Link>
   );
 };

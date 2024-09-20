@@ -20,8 +20,8 @@ const Hero = () => {
       />
       <h1 className="text-4xl font-bold mt-6">{siteConfig.hero.title}</h1>
       <div className="space-y-1 mt-12">
-        <h3 className="text-2xl text-yellow-50">{siteConfig.hero.subTitle}</h3>
-        <div className="flex gap-1 items-center text-yellow-100">
+        <h3 className="text-2xl">{siteConfig.hero.subTitle}</h3>
+        <div className="flex gap-1 items-center">
           <LuMapPin size={18} />
           <p className="text-md text-center sm:text-left">
             {siteConfig.hero.location}
@@ -39,14 +39,11 @@ const Hero = () => {
             <h2 className="text-2xl font-bold">Contact</h2>
             <ul>
               <li>
-                <Link
-                  className="hover:underline hover:text-brand"
-                  href={siteConfig.links.mail}
-                >
+                <Link className="hover:underline" href={siteConfig.links.mail}>
                   sheikhsulaimansony@outlook.com
                 </Link>
               </li>
-              <li className=" hover:text-brand">
+              <li className="hover:underline">
                 <p>+880 19471 97174</p>
               </li>
             </ul>
@@ -56,7 +53,7 @@ const Hero = () => {
               <li>
                 <Link
                   href={siteConfig.links.github}
-                  className="hover:text-brand cursor-pointer"
+                  className="cursor-pointer hover:scale-105"
                   target="_blank"
                 >
                   <FaGithub size={24} />
@@ -65,7 +62,7 @@ const Hero = () => {
               <li>
                 <Link
                   href={siteConfig.links.linkedin}
-                  className="hover:text-brand cursor-pointer"
+                  className="cursor-pointer hover:scale-105"
                   target="_blank"
                 >
                   <FaLinkedin size={24} />
@@ -75,7 +72,7 @@ const Hero = () => {
               <li>
                 <Link
                   href={siteConfig.links.twitter}
-                  className="hover:text-brand cursor-pointer"
+                  className="cursor-pointer hover:scale-105"
                   target="_blank"
                 >
                   <FaXTwitter size={24} />
@@ -84,7 +81,7 @@ const Hero = () => {
               <li>
                 <Link
                   href={siteConfig.links.instragram}
-                  className="hover:text-brand cursor-pointer"
+                  className="cursor-pointer hover:scale-105"
                   target="_blank"
                 >
                   <FaInstagram size={24} />
@@ -93,7 +90,7 @@ const Hero = () => {
               <li>
                 <Link
                   href={siteConfig.links.facebook}
-                  className="hover:text-brand cursor-pointer"
+                  className="cursor-pointer hover:scale-105"
                   target="_blank"
                 >
                   <FaFacebook size={24} />
@@ -104,10 +101,10 @@ const Hero = () => {
         </div>
       </div>
       <div className="grid place-items-center">
-        <p className="absolute bottom-8 text-xl text-center text-yellow-100 opacity-20">
+        <p className="absolute bottom-8 text-xl text-center opacity-50">
           scroll down to explore
         </p>
-        <FaChevronDown className="absolute bottom-4 text-yellow-100 opacity-20 wheel" />
+        <FaChevronDown className="absolute bottom-4 opacity-50 wheel" />
       </div>
     </section>
   );
