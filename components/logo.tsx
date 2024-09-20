@@ -1,27 +1,20 @@
 import Image from "next/image";
 import Link from "next/link";
-
 const Logo = () => {
   return (
-    <div>
+    <div className="flex items-center justify-center gap-2">
       <Link href="/">
         <Image
-          className="dark:hidden"
-          src={"/images/logo_dark.png"}
-          height={75}
-          width={200}
+          priority
+          src={"/favicon.ico"}
+          width={32}
+          height={32}
           alt="sonyed.tech"
         />
       </Link>
-      <Link href="/">
-        <Image
-          className="hidden dark:block"
-          src={"/images/logo_light.png"}
-          height={75}
-          width={200}
-          alt="sonyed.tech"
-        />
-      </Link>
+      <p className="font-space-grotesk pl-2 text-2xl border-l-2 border-brand">
+        sony<span className="text-brand">ed</span>.tech
+      </p>
     </div>
   );
 };
