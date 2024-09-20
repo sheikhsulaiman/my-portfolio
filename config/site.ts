@@ -26,6 +26,7 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/sheikh-sulaiman",
     github: "https://github.com/sheikhsulaiman",
     mail: "mailto:sheikhsulaimansony@outlook.com",
+    mailSecondary: "mailto:sonyedtech@gmail.com",
     instragram: "https://www.instagram.com/sheikh.sulaiman.sony",
     facebook: "https://www.facebook.com/Sheikh.Sulaiman.Sony",
     resume: "@cv/cv.pdf",

@@ -43,6 +43,14 @@ const Hero = () => {
                   sheikhsulaimansony@outlook.com
                 </Link>
               </li>
+              <li>
+                <Link
+                  className="hover:underline"
+                  href={siteConfig.links.mailSecondary}
+                >
+                  sonyedtech@gmail.com
+                </Link>
+              </li>
               <li className="hover:underline">
                 <p>+880 19471 97174</p>
               </li>
@@ -100,7 +108,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      <div className="grid place-items-center">
+      <div className="md:grid place-items-center hidden">
         <p className="absolute bottom-8 text-xl text-center opacity-50">
           scroll down to explore
         </p>

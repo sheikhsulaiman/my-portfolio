@@ -22,11 +22,22 @@ const MobileNav = () => {
         <h2 className="text-2xl font-bold">Contact</h2>
         <ul>
           <li>
-            <Link className="hover:underline" href={siteConfig.links.mail}>
-              sheikhsulaimansony@outlook.com
+            <Link
+              className="hover:underline dark:text-yellow-50"
+              href={siteConfig.links.mail}
+            >
+              sheikhsulaimansony<span className="text-sm">@outlook.com</span>
             </Link>
           </li>
-          <li className="hover:underline">
+          <li>
+            <Link
+              className="hover:underline dark:text-yellow-50"
+              href={siteConfig.links.mailSecondary}
+            >
+              sonyedtech<span className="text-sm">@gmail.com</span>
+            </Link>
+          </li>
+          <li className="hover:underline dark:text-yellow-50">
             <p>+880 19471 97174</p>
           </li>
         </ul>
