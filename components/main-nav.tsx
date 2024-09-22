@@ -11,7 +11,7 @@ import MobileNav from "./mobile-nav";
 const MainNav = () => {
   return (
     <header className="fixed top-0 left-0 right-0 backdrop-blur-md">
-      <nav className="container flex items-center justify-between mx-auto px-2 lg:p-4 border-b-2">
+      <nav className="container flex items-center justify-between mx-auto p-2 lg:p-4 border-b-2">
         <Button variant={"ghost"} size={"icon"} asChild className="lg:hidden">
           <SheetTrigger>
             <LuAlignJustify className="w-6 h-6" />

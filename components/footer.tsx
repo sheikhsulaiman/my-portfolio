@@ -13,12 +13,12 @@ import { ModeToggle } from "./mode-toggle";
 const Footer = () => {
   return (
     <footer className="border-t-2 container mx-auto p-8">
-      <div className="w-full flex items-center justify-between">
+      <div className="w-full flex items-center justify-between my-2">
         <Logo />
         <ModeToggle />
       </div>
       <div className="flex flex-col md:flex-row items-center justify-between">
-        <ul className="w-full mb-8">
+        <ul className="w-full mb-4">
           {siteConfig.mainNav.map((navItem) => (
             <li key={navItem.title} className="ml-4">
               <Link href={navItem.href} className="text-2xl">
